@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://7klwty4siwib"
+path="res://.godot/imported/e i wasnt sleeping.ogg-ed1ef1349883f15c11885ab7a58befbe.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/e i wasnt sleeping.ogg"
+dest_files=["res://.godot/imported/e i wasnt sleeping.ogg-ed1ef1349883f15c11885ab7a58befbe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

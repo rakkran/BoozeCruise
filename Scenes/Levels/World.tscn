@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://be627ue71tlfc"]
+
+[ext_resource type="PackedScene" uid="uid://brhw3uoth34ji" path="res://Scenes/Car/car_sphere.tscn" id="1_mrqes"]
+[ext_resource type="Texture2D" uid="uid://cgryupsb344x1" path="res://Assets/Misc/night_sky.jpg" id="1_nh4dd"]
+[ext_resource type="PackedScene" uid="uid://d1jjjksej6asy" path="res://Scenes/Levels/city_area_1.tscn" id="1_v43qa"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_8t53y"]
+[ext_resource type="PackedScene" uid="uid://oqxwuqfbikhp" path="res://Scenes/OtherCars/car_zones.tscn" id="2_s3vba"]
+[ext_resource type="PackedScene" uid="uid://dxk8gu4tgypwn" path="res://Scenes/UI/hud.tscn" id="4_jeilj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wn201"]
+panorama = ExtResource("1_nh4dd")
+
+[sub_resource type="Sky" id="Sky_id5kx"]
+sky_material = SubResource("PanoramaSkyMaterial_wn201")
+
+[sub_resource type="Environment" id="Environment_a4rqd"]
+background_mode = 2
+background_energy_multiplier = 0.6
+sky = SubResource("Sky_id5kx")
+ambient_light_color = Color(0.713726, 0.713726, 0.713726, 1)
+ambient_light_energy = 1.35
+
+[node name="World" type="Node3D"]
+
+[node name="level" type="Node3D" parent="."]
+
+[node name="CityArea1" parent="level" instance=ExtResource("1_v43qa")]
+collision_mask = 6
+
+[node name="CarZone1" parent="level" instance=ExtResource("2_s3vba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -25)
+CAR_SPEED = 30.0
+MAX_CARS = 16
+
+[node name="CollisionShape3D" parent="level/CarZone1/SpawnZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 2)
+
+[node name="SpawnTimer" parent="level/CarZone1/SpawnZone" index="1"]
+wait_time = 3.0
+
+[node name="KillZone" parent="level/CarZone1" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46)
+
+[node name="CollisionShape3D" parent="level/CarZone1/KillZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3.5, 119)
+
+[node name="CarZone3" parent="level" instance=ExtResource("2_s3vba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -25)
+CAR_SPEED = 30.0
+MAX_CARS = 16
+
+[node name="CollisionShape3D" parent="level/CarZone3/SpawnZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 2)
+
+[node name="SpawnTimer" parent="level/CarZone3/SpawnZone" index="1"]
+wait_time = 3.0
+
+[node name="KillZone" parent="level/CarZone3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46)
+
+[node name="CollisionShape3D" parent="level/CarZone3/KillZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.5, 3.5, 187)
+
+[node name="CarZone2" parent="level" instance=ExtResource("2_s3vba")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, -25)
+CAR_SPEED = 30.0
+MAX_CARS = 16
+
+[node name="CollisionShape3D" parent="level/CarZone2/SpawnZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, 2)
+
+[node name="SpawnTimer" parent="level/CarZone2/SpawnZone" index="1"]
+wait_time = 3.0
+
+[node name="KillZone" parent="level/CarZone2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 46)
+
+[node name="CollisionShape3D" parent="level/CarZone2/KillZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3.5, 119)
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_a4rqd")
+
+[node name="Car" parent="." instance=ExtResource("1_mrqes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+collision_layer = 2
+collision_mask = 5
+acceleration = 60.0
+
+[node name="CarMesh" parent="Car" index="1"]
+top_level = true
+
+[node name="Headlight1" parent="Car/CarMesh/CarParts" index="5"]
+light_color = Color(1, 0.678431, 0.403922, 1)
+spot_range = 1082.6
+spot_angle = 56.78
+
+[node name="Headlight2" parent="Car/CarMesh/CarParts" index="6"]
+light_color = Color(1, 0.733333, 0.403922, 1)
+spot_range = 1159.43
+spot_angle = 56.78
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_8t53y")
+offset = Vector3(0, 5, -6)
+target = NodePath("../Car/CarMesh")
+
+[node name="HUD" parent="." instance=ExtResource("4_jeilj")]
+
+[editable path="level/CarZone1"]
+[editable path="level/CarZone3"]
+[editable path="level/CarZone2"]
+[editable path="Car"]

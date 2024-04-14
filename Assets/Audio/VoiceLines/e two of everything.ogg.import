@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ceofrlkkbok4r"
+path="res://.godot/imported/e two of everything.ogg-de879b0a4c1e747434d3ec00a6b2f84d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/e two of everything.ogg"
+dest_files=["res://.godot/imported/e two of everything.ogg-de879b0a4c1e747434d3ec00a6b2f84d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

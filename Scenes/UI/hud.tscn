@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxk8gu4tgypwn"]
+
+[ext_resource type="Script" path="res://Scripts/playerHUD.gd" id="1_h1fv1"]
+[ext_resource type="PackedScene" uid="uid://df82b0rft25j" path="res://Scenes/UI/InputIcon.tscn" id="2_qxw0k"]
+[ext_resource type="FontFile" path="res://Assets/Misc/monogram-extended.ttf" id="3_77bwv"]
+
+[sub_resource type="Theme" id="Theme_g5rhq"]
+default_font = ExtResource("3_77bwv")
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwu1l"]
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 0.513726)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_g5rhq")
+script = ExtResource("1_h1fv1")
+
+[node name="Inputs" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -106.0
+offset_right = 210.0
+offset_bottom = 106.0
+grow_vertical = 2
+
+[node name="SteerLeft" parent="Inputs" instance=ExtResource("2_qxw0k")]
+layout_mode = 2
+
+[node name="Icon" parent="Inputs/SteerLeft/MarginContainer" index="0"]
+frame = 3
+
+[node name="InputPrompt" parent="Inputs/SteerLeft" index="1"]
+text = "Accelerate"
+
+[node name="Accelerate" parent="Inputs" instance=ExtResource("2_qxw0k")]
+layout_mode = 2
+
+[node name="InputPrompt" parent="Inputs/Accelerate" index="1"]
+text = "Brake"
+
+[node name="Brake" parent="Inputs" instance=ExtResource("2_qxw0k")]
+layout_mode = 2
+
+[node name="Icon" parent="Inputs/Brake/MarginContainer" index="0"]
+frame = 1
+
+[node name="InputPrompt" parent="Inputs/Brake" index="1"]
+text = "Steer Left"
+
+[node name="SteerRight" parent="Inputs" instance=ExtResource("2_qxw0k")]
+layout_mode = 2
+
+[node name="Icon" parent="Inputs/SteerRight/MarginContainer" index="0"]
+frame = 2
+
+[node name="InputPrompt" parent="Inputs/SteerRight" index="1"]
+text = "Steer Right"
+
+[node name="InputIcon" parent="Inputs" instance=ExtResource("2_qxw0k")]
+layout_mode = 2
+
+[node name="Icon" parent="Inputs/InputIcon/MarginContainer" index="0"]
+frame = 6
+
+[node name="InputPrompt" parent="Inputs/InputIcon" index="1"]
+text = "Toggle Headlights"
+
+[node name="SubtitleContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="SubtitleContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wwu1l")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubtitleContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Subtitles" type="RichTextLabel" parent="SubtitleContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_77bwv")
+theme_override_font_sizes/normal_font_size = 48
+
+[node name="SubtitleTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Speedometer" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "CURRENT SPEED:"
+fit_content = true
+
+[connection signal="timeout" from="SubtitleTimer" to="." method="_on_subtitle_timer_timeout"]
+
+[editable path="Inputs/SteerLeft"]
+[editable path="Inputs/Accelerate"]
+[editable path="Inputs/Brake"]
+[editable path="Inputs/SteerRight"]
+[editable path="Inputs/InputIcon"]

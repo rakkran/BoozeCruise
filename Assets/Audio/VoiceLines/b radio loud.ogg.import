@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bk8fn2crpyrwj"
+path="res://.godot/imported/b radio loud.ogg-53d8978c664c99534102415ede66f28a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/b radio loud.ogg"
+dest_files=["res://.godot/imported/b radio loud.ogg-53d8978c664c99534102415ede66f28a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

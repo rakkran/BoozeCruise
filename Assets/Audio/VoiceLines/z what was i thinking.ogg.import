@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0fwor7kkbcpm"
+path="res://.godot/imported/z what was i thinking.ogg-63b0ef7e932b51b551a21036fc86668b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/z what was i thinking.ogg"
+dest_files=["res://.godot/imported/z what was i thinking.ogg-63b0ef7e932b51b551a21036fc86668b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

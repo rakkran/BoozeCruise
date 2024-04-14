@@ -1,0 +1,45 @@
+[gd_scene load_steps=24 format=3 uid="uid://cpx2drrwm5hms"]
+
+[ext_resource type="Script" path="res://Autoloads/AudioManager.gd" id="1_ld7ob"]
+[ext_resource type="AudioStream" uid="uid://br83d6h318fxv" path="res://Assets/Audio/VoiceLines/a this is easy.ogg" id="2_2vxs7"]
+[ext_resource type="AudioStream" uid="uid://cxxff4cnhpjq4" path="res://Assets/Audio/VoiceLines/a this is fine.ogg" id="3_sxk48"]
+[ext_resource type="AudioStream" uid="uid://donsqybquumo0" path="res://Assets/Audio/VoiceLines/a this isnt so bad.ogg" id="4_ai2qb"]
+[ext_resource type="AudioStream" uid="uid://ca08t0nyth6m3" path="res://Assets/Audio/VoiceLines/b blurry lights.ogg" id="5_rw868"]
+[ext_resource type="AudioStream" uid="uid://xhurh5ee1ncg" path="res://Assets/Audio/VoiceLines/b did this road.ogg" id="6_62xfn"]
+[ext_resource type="AudioStream" uid="uid://8mig1qyxh4wl" path="res://Assets/Audio/VoiceLines/b i do this all the time.ogg" id="7_honxw"]
+[ext_resource type="AudioStream" uid="uid://drctlgkchxe7l" path="res://Assets/Audio/VoiceLines/b ive got this under control.ogg" id="8_yn4ml"]
+[ext_resource type="AudioStream" uid="uid://bk8fn2crpyrwj" path="res://Assets/Audio/VoiceLines/b radio loud.ogg" id="9_wngs3"]
+[ext_resource type="AudioStream" uid="uid://c4ftb74mg3tlg" path="res://Assets/Audio/VoiceLines/c am i yelling.ogg" id="10_p07ue"]
+[ext_resource type="AudioStream" uid="uid://cb7gjb2fxbeu3" path="res://Assets/Audio/VoiceLines/c just like a videogame.ogg" id="11_mlgdt"]
+[ext_resource type="AudioStream" uid="uid://begn2qi04fnmg" path="res://Assets/Audio/VoiceLines/c wheel feels funny.ogg" id="12_igu8n"]
+[ext_resource type="AudioStream" uid="uid://cqieg6w0anllw" path="res://Assets/Audio/VoiceLines/d keep it together.ogg" id="13_5a7dn"]
+[ext_resource type="AudioStream" uid="uid://d0w5hnvjjid36" path="res://Assets/Audio/VoiceLines/d stopsign.ogg" id="14_rk0e1"]
+[ext_resource type="AudioStream" uid="uid://bw6jfcinwsngp" path="res://Assets/Audio/VoiceLines/d was that a squirrel.ogg" id="15_8yx56"]
+[ext_resource type="AudioStream" uid="uid://cq7ek07epubct" path="res://Assets/Audio/VoiceLines/e did i miss driveway.ogg" id="16_eeswi"]
+[ext_resource type="AudioStream" uid="uid://7klwty4siwib" path="res://Assets/Audio/VoiceLines/e i wasnt sleeping.ogg" id="17_0mbpu"]
+[ext_resource type="AudioStream" uid="uid://ceofrlkkbok4r" path="res://Assets/Audio/VoiceLines/e two of everything.ogg" id="18_m06ue"]
+[ext_resource type="AudioStream" uid="uid://jwqhdfi65bhh" path="res://Assets/Audio/VoiceLines/e what was i saying.ogg" id="19_rq44o"]
+[ext_resource type="AudioStream" uid="uid://blerf2u0f8nns" path="res://Assets/Audio/VoiceLines/e which way is home.ogg" id="20_y2b4r"]
+[ext_resource type="AudioStream" uid="uid://dlqwya86yexyp" path="res://Assets/Audio/VoiceLines/z almost over.ogg" id="21_3bmbg"]
+[ext_resource type="AudioStream" uid="uid://co5br72sau4r" path="res://Assets/Audio/VoiceLines/z this was a mistake.ogg" id="22_g3ujp"]
+[ext_resource type="AudioStream" uid="uid://b0fwor7kkbcpm" path="res://Assets/Audio/VoiceLines/z what was i thinking.ogg" id="23_sjrv2"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ld7ob")
+VOICE_LINES_A = Array[AudioStream]([ExtResource("2_2vxs7"), ExtResource("3_sxk48"), ExtResource("4_ai2qb")])
+VOICE_LINES_B = Array[AudioStream]([ExtResource("5_rw868"), ExtResource("6_62xfn"), ExtResource("7_honxw"), ExtResource("8_yn4ml"), ExtResource("9_wngs3")])
+VOICE_LINES_C = Array[AudioStream]([ExtResource("10_p07ue"), ExtResource("11_mlgdt"), ExtResource("12_igu8n")])
+VOICE_LINES_D = Array[AudioStream]([ExtResource("13_5a7dn"), ExtResource("14_rk0e1"), ExtResource("15_8yx56")])
+VOICE_LINES_E = Array[AudioStream]([ExtResource("16_eeswi"), ExtResource("17_0mbpu"), ExtResource("18_m06ue"), ExtResource("19_rq44o"), ExtResource("20_y2b4r")])
+VOICE_LINES_Z = Array[AudioStream]([ExtResource("21_3bmbg"), ExtResource("22_g3ujp"), ExtResource("23_sjrv2")])
+SUBTITLES_A = Array[String](["Pff, this is easy!", "This is fine.", "This isn't so bad."])
+
+[node name="VoiceLinePlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice Bus"
+
+[node name="VoiceLineTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="finished" from="VoiceLinePlayer" to="." method="_on_voice_line_finished"]
+[connection signal="timeout" from="VoiceLineTimer" to="." method="_on_voice_line_timer_timeout"]

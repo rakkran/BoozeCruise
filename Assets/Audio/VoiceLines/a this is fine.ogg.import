@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxxff4cnhpjq4"
+path="res://.godot/imported/a this is fine.ogg-3b11c028c6b4c4f695703dfb46a65e18.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/a this is fine.ogg"
+dest_files=["res://.godot/imported/a this is fine.ogg-3b11c028c6b4c4f695703dfb46a65e18.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

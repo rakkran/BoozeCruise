@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://donsqybquumo0"
+path="res://.godot/imported/a this isnt so bad.ogg-7d21a414c4064393fdb8d1a2ceee59ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/a this isnt so bad.ogg"
+dest_files=["res://.godot/imported/a this isnt so bad.ogg-7d21a414c4064393fdb8d1a2ceee59ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

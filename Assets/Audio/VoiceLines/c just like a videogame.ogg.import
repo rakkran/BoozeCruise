@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cb7gjb2fxbeu3"
+path="res://.godot/imported/c just like a videogame.ogg-8e6d013c219e0e034fda316fdd600a18.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/c just like a videogame.ogg"
+dest_files=["res://.godot/imported/c just like a videogame.ogg-8e6d013c219e0e034fda316fdd600a18.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

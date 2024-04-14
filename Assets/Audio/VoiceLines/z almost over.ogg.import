@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dlqwya86yexyp"
+path="res://.godot/imported/z almost over.ogg-ce333fc34f8c7422d291ada51c5e8a58.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/VoiceLines/z almost over.ogg"
+dest_files=["res://.godot/imported/z almost over.ogg-ce333fc34f8c7422d291ada51c5e8a58.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
