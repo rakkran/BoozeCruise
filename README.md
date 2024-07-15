@@ -1,4 +1,4 @@
-# ANTI-DRUNK DRIVING SIMULATOR 2K24
+# ANTI-DRUNK DRIVING SIMULATOR: BOOZE CRUISE
 Programmed by Yusuf. Designed by Dylan, Matthew and Yusuf.
 
 # LICENSING 
